@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Over Here!</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="save_device">Save Device</string>
+    <string name="find_my_device">Find My Device</string>
+    <string name="register_device">Register Device</string>
+    <string name="device_name">Device Name</string>
+    <string name="play_sound">Play Sound</string>
+    <string name="get_device_location">Get Device Location</string>
+</resources>

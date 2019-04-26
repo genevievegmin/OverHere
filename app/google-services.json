@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "110178009821",
+    "firebase_url": "https://overhere-d6301.firebaseio.com",
+    "project_id": "overhere-d6301",
+    "storage_bucket": "overhere-d6301.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110178009821:android:65fcd81eb8209724",
+        "android_client_info": {
+          "package_name": "com.example.overhere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110178009821-r19lac39auouk9u8d472hr5tbtrqvo0t.apps.googleusercontent.com",
+          "client_type": 3,
+          "android_info": {
+            "package_name": "com.example.overhere",
+            "certificate_hash": "45748ce312662716e34f44ed6fbd265b8cd115ff"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj2iImFfKIVgppZuRLP1eGmduTtDbJT5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110178009821-s5agledtsqoebqqderc0204o9ktr2epe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
