@@ -1,7 +1,10 @@
 package com.example.overhere;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +35,21 @@ public class Authentication extends AppCompatActivity {
             new AuthUI.IdpConfig.EmailBuilder().build(),
             new AuthUI.IdpConfig.GoogleBuilder().build());
 
+    MyService mService;boolean mBound = false;
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            MyService.LocalBinder binder = (MyService.LocalBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mBound  = false;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +62,11 @@ public class Authentication extends AppCompatActivity {
         if (user != null) {
             Toast.makeText(Authentication.this, "User signed in", Toast.LENGTH_SHORT).show();
             prefs.putString("User", user.getEmail().toString()).apply();
+
+            Intent i = new Intent(getBaseContext(), MyService.class);
+
+            startService(i);
+            //bindService(i, connection, BIND_AUTO_CREATE);
         } else {
             startActivityForResult(
                     AuthUI.getInstance()
@@ -53,9 +76,6 @@ public class Authentication extends AppCompatActivity {
                     RC_SIGN_IN);
 
         }
-
-
-
     }
 
     // [START auth_fui_result]
@@ -67,10 +87,11 @@ public class Authentication extends AppCompatActivity {
             IdpResponse response = IdpResponse.fromResultIntent(data);
 
             if (resultCode == RESULT_OK) {
-                // Successfully signed in
+
                 user = FirebaseAuth.getInstance().getCurrentUser();
+
                 prefs.putString("User", user.getEmail().toString()).apply();
-                // ...
+
             } else {
                 Toast.makeText(Authentication.this, "Sign in failed. Please check your email and password.", Toast.LENGTH_SHORT).show();
             }

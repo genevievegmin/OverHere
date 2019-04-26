@@ -45,7 +45,7 @@ public class FindDevice extends AppCompatActivity {
 
         //unique_id = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
         //System.out.println("Lalaland" + unique_id);
-
+/*
         // Listening to data changes in Cloud Firestore
         accountRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
@@ -69,7 +69,7 @@ public class FindDevice extends AppCompatActivity {
                 }
             }
         });
-
+*/
 
     }
 

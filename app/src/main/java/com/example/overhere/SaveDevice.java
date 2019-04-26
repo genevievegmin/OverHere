@@ -56,8 +56,8 @@ public class SaveDevice extends AppCompatActivity {
         String dname = deviceName.getText().toString();
         Boolean ring = false;
 
-        Intent serviceIntent = new Intent(this, SoundIntentService.class);
-        ContextCompat.startForegroundService(this, serviceIntent);
+        //Intent serviceIntent = new Intent(this, SoundIntentService.class);
+        //ContextCompat.startForegroundService(this, serviceIntent);
 
         if (dname.isEmpty() || user.isEmpty()) {
             return;

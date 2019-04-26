@@ -49,7 +49,6 @@ public class SoundIntentService extends IntentService {
                     .setSmallIcon(R.drawable.ic_notify)
                     .setContentTitle("Sound service is here people")
                     .setContentText("Hello World!");
-            notificationManager.notify(1, builder.build());
             startForeground(1, builder.build());
         }
     }
